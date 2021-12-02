@@ -1,0 +1,47 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+                Scanner cardNumber = new Scanner(System.in);
+                System.out.print("Please enter your Credit Card Number: ");
+                long num;
+                num = cardNumber.nextLong();
+                System.out.print("Credit Card Number: " + num);
+                int sum = 0;
+
+                String cardType = String.valueOf(num);
+
+                if (cardType.startsWith("4")) {
+                    System.out.print(" is a Visa card");
+                } else if (cardType.startsWith("5")) {
+                    System.out.print(" is a MasterCard");
+
+                } else if (cardType.startsWith("3")) {
+                    System.out.print(" is an American Express card ");
+                }
+
+                while (num > 0)
+
+                    num = num / 10;
+
+                if (num % 2 != 0) {
+                    num *= 2;
+                }
+
+                if (num > 9) {
+                    num = (num % 10) + 1;
+                } else
+                    num *= 1;
+
+                sum += num;
+
+                if (sum % 10 == 0) {
+                    System.out.println(" and is valid.");
+                } else
+                    System.out.println(" is invalid.");
+            }
+        }
